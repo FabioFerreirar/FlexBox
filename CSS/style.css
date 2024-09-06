@@ -1,0 +1,214 @@
+/* 1 - flex */
+
+body {
+    padding-bottom: 500px;
+}
+
+.flex {
+    display: flex;
+    /* geralmente começa com comportamento de row - linha */
+    background-color: #3ccc;
+    margin-bottom: 20px;
+}
+
+/* 2 - flex column */
+
+.flex-column {
+    display: flex;
+    background-color: #ccc;
+    flex-direction: column;
+    /* mudou o comportamento de row para column */
+    margin-bottom: 20px;
+}
+
+.wrap {
+    display: flex;
+    flex-wrap: wrap;
+    /* divide as colunas de acordo com o tamanho de cada elemento (box width:33%)*/
+    margin-bottom: 20px;
+}
+
+.box {
+    height: 40px;
+    width: 33%;
+    /* 3 elementos serão posicionados na tela com o uso do flex-wrap */
+    border: 1px solid red;
+}
+
+/* 4 - justify content */
+
+.center,
+.space-around,
+.space-between,
+.end {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.center .box,
+.space-around .box,
+.space-between .box,
+.end .box {
+    width: 50px;
+}
+
+.center {
+    justify-content: center;
+}
+
+.space-around {
+    justify-content: space-around;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.end {
+    justify-content: end;
+}
+
+/* align items */
+
+.align-center,
+.flex-end,
+.stretch {
+    display: flex;
+    margin-bottom: 20px;
+    height: 200px;
+    border: 1px solid blue;
+}
+
+.align-center .box,
+.flex-end .box,
+.stretch .box {
+    width: 50px;
+}
+
+.align-center {
+    align-items: center;
+    /* alinhamento no centro do eixo vertical */
+    justify-content: center;
+    /* alinhamento no centro do eixo horizontal */
+}
+
+.flex-end {
+    align-items: flex-end;
+}
+
+.stretch {
+    align-items: stretch;
+}
+
+.stretch .box {
+    /* necessário dar um novo valor para height  porque já estava definido antes */
+    height: auto;
+    /* em auto, obedece ao elemento pai.  */
+}
+
+.gap {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: 1px solid green;
+    gap: 10px;
+}
+
+.gap .box {
+    width: 32%;
+}
+
+/* order */
+
+.order {
+    display: flex;
+    /* embora o order seja para o elemento filho, o container precisar estar como display flex */
+}
+
+#one {
+    order: 1;
+}
+
+#two {
+    order: 2;
+}
+
+#three {
+    order: 3;
+}
+
+.grow {
+    display: flex;
+}
+
+.grow .box {
+    flex: 1;
+    /* não acontece nada porque é o padrão ser 1 */
+}
+
+.grow .big {
+    flex: 2;
+    /* elemento duas vezes maior do que os outros elementos */
+}
+
+/* basis */
+
+.basis {
+    display: flex;
+}
+
+.basis .box {
+    flex-basis: 20px;
+}
+
+.basis .big {
+    flex-grow: 1;
+    /* grow utilizado com o basis para gerar o efeito de preenchimento de espaço entre os dois conteiners fixos */
+}
+
+/* shirink */
+
+.shirink {
+    display: flex;
+}
+
+.shirink .box {
+    flex-grow: 1;
+    flex-shrink: 1;
+    /*nada acontece porque está como 1 */
+    flex-basis: 250px;
+    width: auto;
+}
+
+.shirink .small {
+    flex-shrink: 2;
+}
+
+/* shorthand */
+
+.shorthand {
+    display: flex;
+}
+
+.shorthand .box { /* grow + shirink + basis */
+    
+    width: auto;
+    flex: 1 1 50px;
+}
+
+.shorthand .different {
+    flex: 3 1 400px;
+}
+
+/* auto alignment */
+
+.auto-alignment {
+    height: 300px;
+    display: flex;
+    align-items: flex-end;
+    border: 1px solid blue;
+}
+
+.auto-alignment .different {
+    align-self: center;
+}
